@@ -1,0 +1,56 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/api/products">Ir a home</a>
+                    <a class="navbar-brand" href="/api/updateproducts/">Atras</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+   <div>
+            <li>
+                <strong>Id:</strong> {{_id}}<br> 
+                <strong>Nombre:</strong> {{name}}<br>
+                <strong>Descripción:</strong> {{description}}<br>
+                <strong>Precio:</strong> {{price}}<br>
+                <strong>Categoría:</strong> {{category}}<br>
+                <strong>Disponibilidad:</strong> {{availability}}<br>
+            </li>
+
+   
+
+    <!-- Formulario para actualizar un producto -->
+     <form id="updateProductForm" action="/api/updateproducts/{{_id}}" method="PUT" >
+        
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="description">Descripción:</label>
+        <textarea id="description" name="description" required></textarea><br>
+
+        <label for="price">Precio:</label>
+        <input type="number" id="price" name="price" step="0.01" required><br>
+
+        <label for="category">Categoría:</label>
+        <input type="text" id="category" name="category" required><br>
+
+        <label for="availability">Disponibilidad:</label>
+        <input type="number" id="availability" name="availability" required><br>
+      
+        <button type="submit" class="button-update-product" id="{{_id}}"  >Actualizar producto</button>
+   
+    </form>
+
+     <h3 class="mt-4">Cargar imagen del producto</h3>
+    <form   action="/api/updateproducts/{{_id}}" method="POST" enctype="multipart/form-data">
+      <input type="file" name="products" class="form-control mt-2">
+      <button type="submit" class="btn btn-secondary mt-2">Subir</button>
+    </form>
+
+</div>
+</div>
+
+<script src="/js/update-one-product.js"></script>
+

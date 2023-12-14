@@ -1,0 +1,71 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/api/products">Ir a home</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+<div class= "d-flex flex-row flex-wrap"> 
+<div  class="container mt-0 row " > 
+    <h2>Editar Productos</h2>
+     <p>{{user.user.user.email}}</p> 
+</div>
+
+
+<div class="container mt-5 row">  
+<h3>Crear Nuevo Producto</h3>
+
+    <!-- Formulario para crear un nuevo producto -->
+    <form id="createProductForm" action="/api/updateproducts" method="post" enctype="multipart/form-data ">
+  <label for="name">Nombre:</label>
+  <input type="text" id="name" name="name" required><br>
+
+  <label for="description">Descripción:</label>
+  <textarea id="description" name="description" required></textarea><br>
+
+  <label for="price">Precio:</label>
+  <input type="number" id="price" name="price" step="0.01" required><br>
+
+  <label for="category">Categoría:</label>
+  <input type="text" id="category" name="category" required><br>
+
+  <label for="availability">Disponibilidad:</label>
+  <input type="number" id="availability" name="availability" required><br>
+
+  <button type="submit" id="createProductButton" data-user-id="{{user.user.user._id}}">Crear Producto</button>
+</form>
+
+</div>
+
+<div class="container mt-5"> 
+    <!-- Lista de productos -->
+    <ul>
+        {{#each products}}
+            <li>
+                <strong>Id:</strong> {{this._id}}<br>
+                <strong>Nombre:</strong> {{this.name}}<br>
+                <strong>Descripción:</strong> {{this.description}}<br>
+                <strong>Precio:</strong> {{this.price}}<br>
+                <strong>Categoría:</strong> {{this.category}}<br>
+                <strong>Disponibilidad:</strong> {{this.availability}}<br>
+                <strong>Owner:</strong> {{this.owner}}<br>
+                <img class="mb-5" width="90" height="90"  src="/{{this.productImage}}"  alt="" ><br>
+                
+
+                <!-- Botón para actualizar el producto -->
+                <button class="button-to-update-product" id="{{this._id}}"  >Actualizar</button> 
+
+                <!-- Botón para eliminar el producto -->
+                <button class="button-delete-product" id="{{this._id}}">Eliminar</button>
+            </li>
+        {{/each}}
+    </ul>
+</div>
+</div>
+</div>
+
+<script src="/js/update-products.js"></script>
+

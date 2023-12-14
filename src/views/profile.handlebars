@@ -1,0 +1,42 @@
+<div class="container mt-5">
+   <div class="row">
+        <div class="col">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/api/products">Ir a home</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <h6>{{first_name}}</h6>
+    <h6>{{email}}</h6>
+  
+     <img src="/{{profileImage}}"   alt="Avatar" width="150" height="150" class="img-fluid rounded-circle mt-3"> 
+  
+    <h3 class="mt-4">Cargar Avatar</h3>
+    <form   action="/api/users/{{_id}}/upload-avatar" method="POST" enctype="multipart/form-data">
+      <input type="file" name="profiles" class="form-control mt-2">
+      <button type="submit" class="btn btn-secondary mt-2">Subir</button>
+    </form>
+  
+    <h1 class="mt-5">Subir documentos</h1>
+    <form action="/api/users/{{_id}}/upload-documents" method="post" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label for="documentType" class="form-label">Seleccione el tipo de documento:</label>
+    <select id="documentType" name="documentType" class="form-select"> 
+      <option value="identification">Identificación</option>
+      <option value="addressProof">Comprobante de domicilio</option>
+      <option value="bankStatement">Comprobante de estado de cuenta</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="file" class="form-label">Seleccione el archivo:</label>
+    <input type="file" name="documents" accept=".pdf, .doc, .docx, .jpg, .png" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-secondary">Subir Documento</button>
+</form>
+
+</div>
+

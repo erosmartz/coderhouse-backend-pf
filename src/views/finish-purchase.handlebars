@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/api/products">Ir a home</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <h1>Finalizar compra</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <ul>
+                <li>
+                    <strong>Código:</strong> {{code}} <br>
+                    <strong>Fecha de Compra:</strong> {{purchase_datetime}} <br>
+                    <strong>Monto:</strong> {{amount}} <br>
+                    <strong>Comprador:</strong> {{purchaser}} <br>
+                </li>
+            </ul>
+            <a class="btn btn-secondary m-2 ml-10" href="/api/products">Ir al listado de productos</a>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="/js/payments.js"></script>
