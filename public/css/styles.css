@@ -15,8 +15,8 @@ body {
 
 /* Header Styles */
 .welcome-message {
-	background-color: #444444 !important;
-	color: #ffa500 !important; /* Orange */
+	background-color: #000000 !important;
+	color: #ee9b00 !important; /* Orange */
 	text-align: center;
 	padding: 10px;
 	margin-bottom: 20px;
@@ -57,7 +57,7 @@ input[type='password'] {
 	padding: 10px;
 	border: 1px solid #ff6f00 !important;
 	border-radius: 8px;
-	background-color: #444444 !important;
+	background-color: #787878 !important;
 }
 
 /* Button Styles */
@@ -81,4 +81,11 @@ button:hover {
 .a-restore {
 	text-decoration: none !important;
 	color: #ffa500 !important; /* Orange */
+}
+
+.card {
+	background-color: #000000 !important;
+}
+.card-img-top {
+	object-fit: cover;
 }

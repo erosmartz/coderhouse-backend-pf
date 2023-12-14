@@ -1,0 +1,86 @@
+paths:
+  /api/users/:
+    get:
+      summary: Obtiene todos los productos
+      tags:
+        - Users
+      description: Retrieves all users available in the system.
+      security:
+        - passportCall: ['jwt']
+      responses:
+        '200':
+          description: Successful response with a list of users.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User' # Define User schema
+    post:
+      summary: Save a user (admin only)
+      description: Creates a new user in the system.
+      security:
+        - passportCall: ['jwt']
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewUser' # Define NewUser schema
+      responses:
+        '201':
+          description: User successfully created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User' # Define User schema
+    # Other routes...
+  /api/users/{uid}:
+    get:
+      tags:
+        - Users
+      summary: Get user by ID
+      description: Retrieves user information by their ID.
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          description: ID of the user to retrieve.
+          schema:
+            type: string
+            format: uuid # Adjust format as needed
+      security:
+        - passportCall: ['jwt']
+      responses:
+        '200':
+          description: Successful response with user information.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User' # Define User schema
+      # Other operations...
+components:
+  schemas:
+    User:
+      # Define User schema properties based on the mongoose model
+      type: object
+      properties:
+        first_name:
+          type: string
+        last_name:
+          type: string
+        # Define other properties as in the mongoose model
+    NewUser:
+      # Define schema properties for creating a new user
+      type: object
+      properties:
+        first_name:
+          type: string
+        last_name:
+          type: string
+        # Define other properties for creating a user
+  securitySchemes:
+    passportCall: # Define security schemes
+      type: apiKey
+      in: header
+      name: Authorization
