@@ -49,6 +49,6 @@ Puedes utilizar estos usuarios a la hora de hacer log-in para probar los diferen
 
 ## Notas Adicionales
 
-Este repositorio contiene la lógica del backend para la plataforma "PelisExpress". Se recomienda revisar la documentación detallada del API con Swagger para obtener información adicional sobre las rutas, controladores y modelos utilizados en este proyecto.
+Este repositorio contiene la lógica del backend para la plataforma "PelisExpress". Contiene implementacion de Docs-API con Swagger para obtener información adicional sobre las rutas, controladores y modelos utilizados en este proyecto.
 
 ---
